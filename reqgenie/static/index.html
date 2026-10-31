@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ReqGenie</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/mermaid@10.9.1/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <header>
+    <h1>ReqGenie</h1>
+    <p>Paste client requirements. Get user stories, acceptance criteria and UML diagrams. Change the text later and only the affected parts update.</p>
+  </header>
+
+  <main>
+    <section class="panel" id="input-panel">
+      <h2>1. Requirements</h2>
+
+      <label for="projects">Open an existing project</label>
+      <select id="projects"><option value="">New project</option></select>
+
+      <label for="name">Project name</label>
+      <input id="name" type="text" placeholder="Online shop" maxlength="120">
+
+      <label for="text">Client requirements (one per line or sentence)</label>
+      <textarea id="text" rows="12" placeholder="Customers can search products and pay by UPI.&#10;Admin must manage stock."></textarea>
+
+      <div class="buttons">
+        <button id="generate">Generate new project</button>
+        <button id="update" class="secondary" disabled>Save as new version</button>
+        <button id="sample" class="link">Load sample</button>
+      </div>
+      <p id="message" role="status"></p>
+    </section>
+
+    <section class="panel" id="output-panel">
+      <div class="out-head">
+        <h2>2. Results</h2>
+        <div class="out-tools">
+          <select id="versions" disabled><option>No versions yet</option></select>
+          <a id="export-md" class="btn-link" href="#" hidden>Download Markdown</a>
+          <a id="export-csv" class="btn-link" href="#" hidden>Download JIRA CSV</a>
+        </div>
+      </div>
+
+      <nav class="tabs" role="tablist">
+        <button class="tab active" data-tab="stories" role="tab">User stories</button>
+        <button class="tab" data-tab="diagrams" role="tab">UML diagrams</button>
+        <button class="tab" data-tab="changes" role="tab">Changes</button>
+      </nav>
+
+      <div id="tab-stories" class="tab-body"><p class="empty">Nothing yet. Generate a project to see stories.</p></div>
+      <div id="tab-diagrams" class="tab-body" hidden></div>
+      <div id="tab-changes" class="tab-body" hidden></div>
+    </section>
+  </main>
+
+  <footer>ReqGenie · Adaptive Software Engineering (24CI3201) · Team 17</footer>
+  <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,4 @@
+We need an online shop where customers can search products and pay by UPI.
+Customers must be able to add items to a cart and track their orders.
+Admin must manage product stock and view sales reports.
+Customers can download invoices.
